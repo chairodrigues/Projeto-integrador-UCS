@@ -20,8 +20,6 @@ class Aluno {
         LocalDate hoje = LocalDate.now();
         return hoje.minusYears(dataNascimento.getYear()).getYear();
     }
-
-    // Outros getters e setters conforme necessário
 }
 
 class Turma {
@@ -56,16 +54,15 @@ class Turma {
     }
 
     public String getEtapaEnsino() {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getEtapaEnsino'");
     }
 
     public String getAno() {
-        // TODO Auto-generated method stub
+        
         throw new UnsupportedOperationException("Unimplemented method 'getAno'");
     }
 
-    // Outros métodos conforme necessário
+   
 }
 
 class ListaDeAlunos {
@@ -147,7 +144,7 @@ public class escola {
                     break;
 
                 case 2:
-                    // Cadastrar Turma
+                   
                     System.out.print("Código da turma: ");
                     String codigoTurma = scanner.nextLine();
                     System.out.print("Etapa de ensino (infantil, fundamental, médio): ");
@@ -163,7 +160,7 @@ public class escola {
                     break;
 
                 case 3:
-                    // Matricular Aluno em Turma
+                   
                     System.out.print("Nome do aluno: ");
                     String nomeAlunoMatricula = scanner.nextLine();
                     System.out.print("Código da turma: ");
@@ -188,7 +185,7 @@ public class escola {
                     break;
 
                 case 4:
-                    // Listar Alunos por Nome e Idade
+                    
                     listaDeAlunos.ordenar();
                     System.out.println("Alunos cadastrados:");
                     for (int i = 0; i < listaDeAlunos.tamanho(); i++) {
@@ -198,7 +195,7 @@ public class escola {
                     break;
 
                 case 5:
-                    // Listar Turmas Cadastradas
+                    
                     System.out.println("Turmas cadastradas:");
                     for (Turma t : turmas) {
                         System.out.println("Código: " + t.getCodigo() + ", Etapa de Ensino: " + t.getEtapaEnsino()
@@ -207,7 +204,7 @@ public class escola {
                     break;
 
                 case 6:
-                    // Listar Alunos Matriculados em uma Turma
+                    
                     System.out.print("Código da turma: ");
                     String codigoTurmaConsulta = scanner.nextLine();
                     for (Turma t : turmas) {
@@ -219,7 +216,7 @@ public class escola {
                     break;
 
                 case 7:
-                    // Listar Alunos fora da faixa etária por Etapa de Ensino
+                    
                     System.out.print("Etapa de ensino (infantil, fundamental, médio): ");
                     String etapaEnsinoConsulta = scanner.nextLine();
                     int idadeMinima = 0;
@@ -249,7 +246,7 @@ public class escola {
                     break;
 
                 case 8:
-                    // Sair
+                   
                     System.out.println("Encerrando o programa...");
                     System.exit(0);
                     break;
