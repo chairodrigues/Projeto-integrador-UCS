@@ -4,8 +4,11 @@ import java.time.LocalDate;
         import java.util.Collections;
         import java.util.Scanner;
 
-public class CadastroAlunos {
-    
+public class CadastroAlunos extends Aluno{
+
+    public CadastroAlunos(String nome, String cpf, String endereco, LocalDate dataNascimento) {
+        super(nome, cpf, endereco, dataNascimento);
+    }
 }
 
 
