@@ -2,7 +2,7 @@
 import java.time.LocalDate;
         import java.util.ArrayList;
         import java.util.Collections;
-        import java.util.Scanner;
+import java.util.Objects;
 
 public class CadastroAlunos extends Aluno{
 
@@ -27,10 +27,6 @@ class Turma {
         this.alunosMatriculados = new ArrayList<>();
     }
 
-    public String getCodigo() {
-        return codigo;
-    }
-
     public void matricularAluno(Aluno aluno) {
         if (alunosMatriculados.size() < limiteVagas) {
             alunosMatriculados.add(aluno);
@@ -47,6 +43,37 @@ class Turma {
         }
     }
 
+    public void listarNroAlunosForaFaixa(String etapaEnsinoConsulta) {
+        int contador = 0;
+        int idadeMinima = 0;
+        int idadeMaxima = 0;
+        switch (etapaEnsinoConsulta) {
+            case "infantil":
+                idadeMaxima = 5;
+                break;
+            case "fundamental":
+                idadeMinima = 6;
+                idadeMaxima = 15;
+                break;
+            case "médio":
+                idadeMinima = 15;
+                idadeMaxima = 18;
+                break;
+        }
+
+        for (Aluno a : alunosMatriculados) {
+            int idade = a.getIdade();
+            if (idade < idadeMinima || idade > idadeMaxima) {
+                contador++;
+            }
+        }
+        System.out.println(contador);
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
     public String getEtapaEnsino() {
         return etapaEnsino;
     }
@@ -58,6 +85,19 @@ class Turma {
     @Override
     public String toString() {
         return "Código: " + getCodigo() + ", Etapa de Ensino: " + getEtapaEnsino() + ", Ano: " + getAno();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Turma turma = (Turma) o;
+        return Objects.equals(getEtapaEnsino(), turma.getEtapaEnsino());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getEtapaEnsino());
     }
 }
 
