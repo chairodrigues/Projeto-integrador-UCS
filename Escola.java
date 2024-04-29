@@ -21,7 +21,7 @@ public class Escola extends Aluno{
             System.out.println("4. Listar Alunos por Nome e Idade");
             System.out.println("5. Listar Turmas Cadastradas");
             System.out.println("6. Listar Alunos Matriculados em uma Turma");
-            System.out.println("7. Listar Alunos fora da faixa etária por Etapa de Ensino");
+            System.out.println("7. Listar Número de Alunos fora da faixa etária matriculados em uma Etapa de Ensino");
             System.out.println("8. Sair");
             System.out.print("Escolha uma opção: ");
             int opcao = scanner.nextInt();
@@ -91,7 +91,7 @@ public class Escola extends Aluno{
                     System.out.println("Alunos cadastrados:");
                     for (int i = 0; i < listaDeAlunos.tamanho(); i++) {
                         Aluno a = listaDeAlunos.get(i);
-                        System.out.println(a.getNome() + " - Idade: " + a.getIdade());
+                        System.out.println(a.toString());
                     }
                     break;
 
@@ -99,8 +99,7 @@ public class Escola extends Aluno{
 
                     System.out.println("Turmas cadastradas:");
                     for (Turma t : turmas) {
-                        System.out.println("Código: " + t.getCodigo() + ", Etapa de Ensino: " + t.getEtapaEnsino()
-                                + ", Ano: " + t.getAno());
+                        System.out.println(t.toString());
                     }
                     break;
 
@@ -120,31 +119,17 @@ public class Escola extends Aluno{
 
                     System.out.print("Etapa de ensino (infantil, fundamental, médio): ");
                     String etapaEnsinoConsulta = scanner.nextLine();
-                    int idadeMinima = 0;
-                    int idadeMaxima = 0;
-                    switch (etapaEnsinoConsulta) {
-                        case "infantil":
-                            idadeMaxima = 5;
+
+                    System.out.println("Número de Alunos fora da faixa etária que estão matriculados na etapa de ensino " + etapaEnsinoConsulta + ":");
+
+                    for (Turma t : turmas) {
+                        if (t.getEtapaEnsino().equals(etapaEnsinoConsulta)) {
+                            t.listarNroAlunosForaFaixa(etapaEnsinoConsulta);
                             break;
-                        case "fundamental":
-                            idadeMinima = 6;
-                            idadeMaxima = 15;
-                            break;
-                        case "médio":
-                            idadeMinima = 15;
-                            idadeMaxima = 18;
-                            break;
-                    }
-                    System.out
-                            .println("Alunos fora da faixa etária para a etapa de ensino " + etapaEnsinoConsulta + ":");
-                    for (int i = 0; i < listaDeAlunos.tamanho(); i++) {
-                        Aluno a = listaDeAlunos.get(i);
-                        int idade = a.getIdade();
-                        if (idade < idadeMinima || idade > idadeMaxima) {
-                            System.out.println(a.getNome() + " - Idade: " + idade);
                         }
                     }
                     break;
+
 
                 case 8:
 
@@ -158,4 +143,3 @@ public class Escola extends Aluno{
         }
     }
 }
-
