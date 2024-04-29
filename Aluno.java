@@ -18,4 +18,9 @@ class Aluno {
         LocalDate hoje = LocalDate.now();
         return hoje.minusYears(dataNascimento.getYear()).getYear();
     }
+
+    @Override
+    public String toString() {
+        return getNome() + " - Idade: " + getIdade();
+    }
 }

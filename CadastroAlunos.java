@@ -14,11 +14,15 @@ public class CadastroAlunos extends Aluno{
 
 class Turma {
     private String codigo;
+    private String etapaEnsino;
+    private int ano;
     private int limiteVagas;
     private ArrayList<Aluno> alunosMatriculados;
 
     public Turma(String codigo, String etapaEnsino, int ano, int limiteVagas) {
         this.codigo = codigo;
+        this.etapaEnsino = etapaEnsino;
+        this.ano = ano;
         this.limiteVagas = limiteVagas;
         this.alunosMatriculados = new ArrayList<>();
     }
@@ -44,15 +48,17 @@ class Turma {
     }
 
     public String getEtapaEnsino() {
-        throw new UnsupportedOperationException("Unimplemented method 'getEtapaEnsino'");
+        return etapaEnsino;
     }
 
-    public String getAno() {
-
-        throw new UnsupportedOperationException("Unimplemented method 'getAno'");
+    public int getAno() {
+        return ano;
     }
 
-
+    @Override
+    public String toString() {
+        return "Código: " + getCodigo() + ", Etapa de Ensino: " + getEtapaEnsino() + ", Ano: " + getAno();
+    }
 }
 
 class ListaDeAlunos {

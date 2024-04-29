@@ -91,7 +91,7 @@ public class Escola extends Aluno{
                     System.out.println("Alunos cadastrados:");
                     for (int i = 0; i < listaDeAlunos.tamanho(); i++) {
                         Aluno a = listaDeAlunos.get(i);
-                        System.out.println(a.getNome() + " - Idade: " + a.getIdade());
+                        System.out.println(a.toString());
                     }
                     break;
 
@@ -99,8 +99,7 @@ public class Escola extends Aluno{
 
                     System.out.println("Turmas cadastradas:");
                     for (Turma t : turmas) {
-                        System.out.println("Código: " + t.getCodigo() + ", Etapa de Ensino: " + t.getEtapaEnsino()
-                                + ", Ano: " + t.getAno());
+                        System.out.println(t.toString());
                     }
                     break;
 
